@@ -1,0 +1,76 @@
+{
+  "name": "File Sharing Man",
+  "description": "Multi Force Subs File Sharing Bot is useful for storing files and can be accessed through a special link.",
+  "stack": "heroku-22",
+  "keywords": [
+    "telegram",
+    "file",
+    "sharing"
+  ],
+  "logo": "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg",
+  "env": {
+    "TG_BOT_TOKEN": {
+      "description": "Input Bot token, Obtain from t.me/BotFather",
+      "value": ""
+    },
+    "OWNER": {
+      "description": "Input Telegram Username for BOT Owner [Without @]",
+      "value": ""
+    },
+    "ADMINS": {
+      "description": "Input User ID to get Admin rights in BOT [Use Space as ID Separator]",
+      "value": "0"
+    },
+    "APP_ID": {
+      "description": "Get APP ID from my.telegram.org website",
+      "value": "6"
+    },
+    "API_HASH": {
+      "description": "Get API HASH from my.telegram.org website",
+      "value": "eb06d4abfb49dc3eeb1aeb98ae0f581e"
+    },
+    "CHANNEL_ID": {
+      "description": "Input Channel ID for [Database Channel]",
+      "value": "-100"
+    },
+    "PROTECT_CONTENT": {
+      "description": "To prevent bot users from downloading/forwarding/screenshotting sent content [If you want to activate, change to True]",
+      "value": "False"
+    },
+    "FORCE_SUB_CHANNEL": {
+      "description": "Input Channel or Group ID for Mandatory Subscription, If you don't want to use Fsub, fill with 0",
+      "value": "0"
+    },
+    "FORCE_SUB_GROUP": {
+      "description": "Input Group ID for Mandatory Subscription, If you don't want to use Fsub, fill with 0",
+      "value": "0"
+    },
+    "START_MESSAGE": {
+      "description": "/start message to initiate interaction with the bot, Use HTML parsemode format",
+      "value": "<b>Hello {first}\n\nI can store private files in a Specific Channel and other users can access them through a special link.</b>"
+    },
+    "FORCE_SUB_MESSAGE": {
+      "description": "Force Subscribe bot message, Use HTML parsemode format",
+      "value": "<b>Hello {first}\n\nYou must join my Channel/Group to use me\n\nPlease Join the Channel First</b>"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "12"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
