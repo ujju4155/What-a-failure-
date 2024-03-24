@@ -1,4 +1,4 @@
-# (©)Codexbotz
+j (©)Codexbotz
 # Recoded by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
 
@@ -89,6 +89,30 @@ class Bot(Client):
                 )
                 self.LOGGER(__name__).warning(
                     f"Make sure @{self.username} is admin in that Group, Current F-Subs Group Chat ID: {FORCE_SUB_GROUP}"
+                )
+                self.LOGGER(__name__).info(
+                    "Bot Stopped. Join Group https://t.me/SharingUserbot for Assistance"
+                )
+                sys.exit()
+
+        if FORCE_SUB_CHANNEL 2:
+            try:
+                info = await self.get_chat(FORCE_SUB_CHANNEL)
+                link = info.invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                    link = info.invite_link
+                self.invitelink = link
+                self.LOGGER(__name__).info(
+                    f"FORCE_SUB_CHANNEL detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
+                )
+            except Exception as a:
+                self.LOGGER(__name__).warning(a)
+                self.LOGGER(__name__).warning(
+                    "Bot failed to Fetch invite link from FORCE_SUB_CHANNEL!"
+                )
+                self.LOGGER(__name__).warning(
+                    f"Make sure @{self.username} is admin in that Channel, Current F-Subs Channel Chat ID: {FORCE_SUB_CHANNEL}"
                 )
                 self.LOGGER(__name__).info(
                     "Bot Stopped. Join Group https://t.me/SharingUserbot for Assistance"
